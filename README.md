@@ -1,5 +1,9 @@
 # Menard
 
+> **License:** Copyright © 2026 Sifrious. All rights reserved. This is
+> publicly viewable proprietary software, not open-source software. See
+> [LICENSE.md](LICENSE.md).
+
 ## Why “Menard”?
 
 Menard is named after Pierre Menard, the fictional writer in Jorge Luis Borges’s “Pierre Menard, Author of the Quixote.” Menard does not merely copy an existing text. He approaches it again from another time and context, making the same words newly legible.
