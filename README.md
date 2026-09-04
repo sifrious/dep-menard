@@ -104,3 +104,20 @@ Keeping that boundary narrow makes Menard useful anywhere retrieval is needed, r
 Menard is in early development. Its first milestone is deliberately narrow: define cited passages, build a replaceable index, retrieve relevant passages, and assemble a deterministic context pack within a token budget.
 
 Installation and usage instructions will be added when that first supported release is available.
+
+## Embedding identity and migration contracts
+
+Menard treats an embedding profile as immutable identity, including provider,
+model, artifact digest, dimensions, normalization, tokenizer, and preprocessing.
+`RetrievalSpace` derives a separate identity from that complete profile and an
+index generation. `EmbeddingPolicy` rejects incompatible writes and requires a
+query to resolve to exactly one compatible space.
+
+Every `EmbeddedRecordIdentity` carries its complete profile, retrieval-space
+identity, source reference, and chunk reference. These are domain metadata;
+the package deliberately does not implement vector storage or Scout queries.
+
+`MigrationSnapshot` freezes a manifest, records restartable per-record
+progress, blocks incomplete cutover, retains the old space after cutover, and
+supports rollback. Its checksummed JSON checkpoint can be persisted through a
+host-provided `MigrationSnapshotStore`.
